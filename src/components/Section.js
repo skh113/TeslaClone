@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Fade from "react-reveal/Fade";
 
 function Section({
   title,
@@ -11,16 +12,26 @@ function Section({
   return (
     <Wrap bgImage={backgroundImg}>
       <ItemText>
-        <h2>{title}</h2>
-        <p>{description}</p>
+        <Fade bottom>
+          <h1>{title}</h1>
+        </Fade>
+        <Fade bottom>
+          <p>{description}</p>
+        </Fade>
       </ItemText>
       <Footer>
         <ButtonGroup>
-          <LeftButton>{leftBtnText}</LeftButton>
-          {rightBtnText && <RightButton>{rightBtnText}</RightButton>}
+          <Fade left>
+            <LeftButton>{leftBtnText}</LeftButton>
+          </Fade>
+          <Fade right>
+            {rightBtnText && <RightButton>{rightBtnText}</RightButton>}
+          </Fade>
           {/* if RightButton Exist then create it */}
         </ButtonGroup>
-        <DownArrow src="/images/down-arrow.svg" />
+        <Fade up>
+          <DownArrow src="/images/down-arrow.svg" />
+        </Fade>
       </Footer>
     </Wrap>
   );
